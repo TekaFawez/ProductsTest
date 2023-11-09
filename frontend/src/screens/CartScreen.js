@@ -14,6 +14,9 @@ function CartScreen({match, history}) {
   const qty = new URLSearchParams(location.search).get('qty');
   
   const dispatch = useDispatch()
+//   const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
+//   let userIsLoggedIn = false;
+
 
   const cart = useSelector(state => state.cart)
     const { cartItems } = cart
@@ -30,7 +33,7 @@ const removeFromCartHandler = (id) => {
 }
 
 const checkoutHandler = () => {
-    navigate('/shipping')
+    navigate('/login?redirect=shipping')
 
 }
 

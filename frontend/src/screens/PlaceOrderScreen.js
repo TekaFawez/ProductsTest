@@ -23,7 +23,6 @@ function PlaceOrderScreen({ history }) {
 
     cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
 
-
     // if (!cart.paymentMethod) {
     //     navigate('/payment')
     // }
@@ -39,7 +38,7 @@ function PlaceOrderScreen({ history }) {
         dispatch(createOrder({
             orderItems: cart.cartItems,
             shippingAddress: cart.shippingAddress,
-          //  paymentMethod: cart.paymentMethod,
+           // paymentMethod: cart.paymentMethod,
             itemsPrice: cart.itemsPrice,
             shippingPrice: cart.shippingPrice,
             taxPrice: cart.taxPrice,
@@ -66,13 +65,13 @@ function PlaceOrderScreen({ history }) {
                             </p>
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        {/* <ListGroup.Item>
                             <h2>Payment Method</h2>
                             <p>
                                 <strong>Method: </strong>
-                                {/* {cart.paymentMethod} */}
+                                {cart.paymentMethod}
                             </p>
-                        </ListGroup.Item>
+                        </ListGroup.Item> */}
 
                         <ListGroup.Item>
                             <h2>Order Items</h2>
