@@ -29,8 +29,9 @@ Ce projet est une petite application de paiement en ligne, développée en utili
 2.Puis crier un enveronement : virtualenv myenv     
 3. Activez l'environnement virtuel :    
    - Sur Windows : `myenv\scripts\activate`
-4. Naviguez vers le répertoire backend : `cd backend`   
-5. Installez les dépendances : `pip install -r requirements.txt`
+
+4. Installez les dépendances : `pip install -r requirements.txt`
+5. Naviguez vers le répertoire backend : `cd backend`   
 6. Appliquez les migrations : `python manage.py migrate`
 7. Démarrez le serveur : `python manage.py runserver`
 
