@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams,useNavigate  } from 'react-router-dom'
+import { useNavigate  } from 'react-router-dom'
 import { Form, Button, Row, Col, Table } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { getUserDetails } from '../actions/userActions'
-//import { listMyOrders } from '../actions/orderActions'
+import { getUserDetails, } from '../actions/userActions'
+import { listMyOrders } from '../actions/orderActions'
 
-function ProfileScreen({ history }) {
+function ProfileScreen() {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-
     const [message, setMessage] = useState('')
-    const navigate = useNavigate ();
-
-
 
     const dispatch = useDispatch()
+    const navigate=useNavigate()
 
     const userDetails = useSelector(state => state.userDetails)
     const { error, loading, user } = userDetails
@@ -26,27 +23,27 @@ function ProfileScreen({ history }) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    
+  
 
-    // const orderListMy = useSelector(state => state.orderListMy)
-    // const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
-
-
+ 
+    const orderListMy = useSelector(state => state.orderListMy );
+    const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
+    console.log(orders); // Check if it's now defined as an empty array
     useEffect(() => {
         if (!userInfo) {
             navigate('/login')
         } else {
-            if (!user || !user.name  || userInfo._id !== user._id) {
+            if (!user || !user.name || userInfo._id !== user._id) {
                 dispatch(getUserDetails('profile'))
-               // dispatch(listMyOrders())
+                dispatch(listMyOrders())
             } else {
                 setName(user.name)
                 setEmail(user.email)
             }
         }
-    }, [dispatch, history, userInfo, user])
+    }, [dispatch, navigate, userInfo, user])
 
-   
+
     return (
         <Row>
             <Col md={3}>
@@ -81,16 +78,14 @@ function ProfileScreen({ history }) {
                         </Form.Control>
                     </Form.Group>
 
-                    
-
-                    
+                   
 
                     
 
                 </Form>
             </Col>
 
-            {/* <Col md={9}>
+            <Col md={9}>
                 <h2>My Orders</h2>
                 {loadingOrders ? (
                     <Loader />
@@ -110,9 +105,10 @@ function ProfileScreen({ history }) {
                                 </thead>
 
                                 <tbody>
-                                    {orders.map(order => (
+                                {orders && orders.map(order => (
                                         <tr key={order._id}>
-                                            <td>{order._id}</td>
+                                            {console.log('id',order._id)}
+                                            <td>{order._id} </td>
                                             <td>{order.createdAt.substring(0, 10)}</td>
                                             <td>${order.totalPrice}</td>
                                             <td>{order.isPaid ? order.paidAt.substring(0, 10) : (
@@ -128,7 +124,7 @@ function ProfileScreen({ history }) {
                                 </tbody>
                             </Table>
                         )}
-            </Col> */}
+            </Col>
         </Row>
     )
 }

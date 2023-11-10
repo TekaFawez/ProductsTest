@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams ,useLocation,useNavigate} from 'react-router-dom'
+import { Link ,useLocation,useNavigate} from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
@@ -7,7 +7,7 @@ import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
 
-function LoginScreen({  history }) {
+function LoginScreen() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const location = useLocation();
@@ -27,7 +27,7 @@ function LoginScreen({  history }) {
         if (userInfo) {
             navigate(redirect)
         }
-    }, [history, userInfo, redirect])
+    }, [navigate, userInfo, redirect])
     const submitHandler = (e) => {
         e.preventDefault()
         console.log("submitted");

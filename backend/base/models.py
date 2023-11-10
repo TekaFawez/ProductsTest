@@ -8,8 +8,7 @@ class Product(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True,
-                              default='/placeholder.png')
-    
+                              default='/placeholder.jpg') 
     category = models.CharField(max_length=200, null=True, blank=True)
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
@@ -22,7 +21,6 @@ class Product(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    # paymentMethod = models.CharField(max_length=200, null=True, blank=True)
     taxPrice = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     shippingPrice = models.DecimalField(
