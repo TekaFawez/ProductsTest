@@ -34,3 +34,6 @@ Ce projet est une petite application de paiement en ligne, développée en utili
 6. Appliquez les migrations : `python manage.py migrate`
 7. Démarrez le serveur : `python manage.py runserver`
 
+
+
+
