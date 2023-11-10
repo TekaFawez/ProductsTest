@@ -1,6 +1,5 @@
-//Pour modifier le store prend une action(load data or smth) en utulise cet Reducer
-//changer initialState
-//définit la manière dont l'état doit être mis à jour en fonction des différentes actions
+//Ce fichier contient les réducteurs qui spécifient comment l'état de l'application
+// change en réponse à différentes actions concernant les produits.
 import {
     PRODUCT_LIST_REQUEST,
     PRODUCT_LIST_SUCCESS,

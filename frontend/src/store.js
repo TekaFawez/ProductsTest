@@ -1,4 +1,5 @@
 //consolide toutes les étapes et configurations nécessaires à la mise en place du  Redux
+//configure le magasin Redux qui consolide tous les réducteurs pour gérer l'état global de l'application
 
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
