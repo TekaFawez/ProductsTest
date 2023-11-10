@@ -36,7 +36,6 @@ function PlaceOrderScreen({ history }) {
         dispatch(createOrder({
             orderItems: cart.cartItems,
             shippingAddress: cart.shippingAddress,
-           // paymentMethod: cart.paymentMethod,
             itemsPrice: cart.itemsPrice,
             shippingPrice: cart.shippingPrice,
             taxPrice: cart.taxPrice,
@@ -63,13 +62,7 @@ function PlaceOrderScreen({ history }) {
                             </p>
                         </ListGroup.Item>
 
-                        {/* <ListGroup.Item>
-                            <h2>Payment Method</h2>
-                            <p>
-                                <strong>Method: </strong>
-                                {cart.paymentMethod}
-                            </p>
-                        </ListGroup.Item> */}
+                
 
                         <ListGroup.Item>
                             <h2>Order Items</h2>

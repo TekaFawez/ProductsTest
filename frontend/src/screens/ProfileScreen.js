@@ -28,7 +28,6 @@ function ProfileScreen() {
  
     const orderListMy = useSelector(state => state.orderListMy );
     const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
-    console.log(orders); // Check if it's now defined as an empty array
     useEffect(() => {
         if (!userInfo) {
             navigate('/login')

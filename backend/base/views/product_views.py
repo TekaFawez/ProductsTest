@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import  IsAdminUser
 from rest_framework.response import Response
 from base.models import Product
 
@@ -12,9 +12,6 @@ from rest_framework import status
 
 @api_view(['GET'])
 def getProducts(request):
-
-    
-
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
     return  Response (serializer.data)
@@ -35,7 +32,6 @@ def updateProduct(request, pk):
     product.name = data['name']
     product.price = data['price']
     product.inventory = data['inventory']
-    product.category = data['category']
 
     product.save()
 
@@ -52,7 +48,6 @@ def createProduct(request):
         name='Sample Name',
         price=0,
         inventory=0,
-        category='Sample Category',
        
     )
 

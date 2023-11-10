@@ -4,7 +4,6 @@ import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-//import Paginate from '../components/Paginate'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 import { useNavigate,useLocation} from 'react-router-dom'
@@ -57,11 +56,8 @@ function ProductListScreen({ history, match }) {
 
     const createProductHandler = () => {
         const productData = {
-            // Include the required data for creating a product
             name: 'Sample Product',
-            price: 100,
-            category: 'Sample Category',
-            
+            price: 100,            
         }
         dispatch(createProduct(productData))
     }
@@ -99,7 +95,8 @@ function ProductListScreen({ history, match }) {
                                         <th>ID</th>
                                         <th>NAME</th>
                                         <th>PRICE</th>
-                                        <th>CATEGORY</th>
+                                        <th>Inventory</th>
+
                                        
                                         <th></th>
                                     </tr>
@@ -111,7 +108,8 @@ function ProductListScreen({ history, match }) {
                                             <td>{product._id}</td>
                                             <td>{product.name}</td>
                                             <td>${product.price}</td>
-                                            <td>{product.category}</td>
+                                            <td>{product.inventory}</td>
+
                                             
 
                                             <td>
@@ -129,7 +127,6 @@ function ProductListScreen({ history, match }) {
                                     ))}
                                 </tbody>
                             </Table>
-                            {/* <Paginate pages={pages} page={page} isAdmin={true} /> */}
                         </div>
                     )}
         </div>

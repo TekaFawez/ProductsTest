@@ -3,16 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom';
 
 import { Row, Col } from 'react-bootstrap'
-import axios from 'axios'
 import Product from '../components/Product'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
 
-function HomeScreen({ history }) {
+function HomeScreen() {
   const dispatch = useDispatch()
   const productList = useSelector(state => state.productList)
-  const { error, loading, products, page, pages } = productList
+  const { error, loading, products } = productList
   console.log(products)
 
   const location = useLocation();
@@ -41,7 +40,6 @@ function HomeScreen({ history }) {
                               </Col>
                           ))}
                       </Row>
-                      {/* <Paginate page={page} pages={pages} keyword={keyword} /> */}
                   </div>
           }
       </div>
