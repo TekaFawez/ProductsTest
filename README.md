@@ -20,14 +20,14 @@ Ce projet est une petite application de paiement en ligne, développée en utili
 
 ### Frontend (React)
 
-1. Naviguez vers le répertoire frontend : `cd frontend`
-2. Installez les dépendances : `npm install`
-3. Démarrez l'application : `npm start`
+1. Naviguez vers le répertoire frontend : `cd frontend`   
+2. Installez les dépendances : `npm install`   
+3. Démarrez l'application : `npm start`   
 
 ### Backend (Django)
-1.Ouvrire le Projet et Installer virtualenv : pip install virtualenv
-2.Puis crier un enveronement : virtualenv myenv
-3. Activez l'environnement virtuel :
+1.Ouvrire le Projet et Installer virtualenv : pip install virtualenv    
+2.Puis crier un enveronement : virtualenv myenv     
+3. Activez l'environnement virtuel :    
    - Sur Windows : `myenv\scripts\activate`
 4. Naviguez vers le répertoire backend : `cd backend`   
 5. Installez les dépendances : `pip install -r requirements.txt`
