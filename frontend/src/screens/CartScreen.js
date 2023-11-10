@@ -6,8 +6,8 @@ import Message from '../components/Message'
 import { addToCart,removeFromCart } from '../actions/cartActions'
 
 function CartScreen({match, history}) {
-  const productId = useParams()
-  console.log('productId',productId)
+  const {id} = useParams()
+  console.log('id',id)
   const location = useLocation();
   const navigate = useNavigate ();
 
@@ -21,10 +21,10 @@ function CartScreen({match, history}) {
     const { cartItems } = cart
 
   useEffect(() => {
-    if (productId) {
-        dispatch(addToCart(productId, qty))
+    if (id) {
+        dispatch(addToCart(id, qty))
     }
-}, [dispatch, productId, qty])
+}, [dispatch, id, qty])
 
 const removeFromCartHandler = (id) => {
  dispatch(removeFromCart(id))
